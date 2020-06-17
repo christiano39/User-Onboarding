@@ -1,9 +1,19 @@
 import React from 'react'
 
 export default function Form(props) {
-    const { formState, onInputChange, onCheckboxChange, onSubmit } = props
+    const { formState,
+            disabled,
+            errors,
+            onInputChange, 
+            onCheckboxChange, 
+            onSubmit,
+        } = props
     return (
         <form onSubmit={onSubmit}>
+            <div>{errors.name}</div>
+            <div>{errors.email}</div>
+            <div>{errors.password}</div>
+            <div>{errors.terms}</div>
             <label>Name:&nbsp;
                 <input 
                     type='text'
@@ -40,7 +50,7 @@ export default function Form(props) {
                 />
             </label>
             <br />
-            <button>Submit</button>
+            <button disabled={disabled}>Submit</button>
         </form>
     )
 }
