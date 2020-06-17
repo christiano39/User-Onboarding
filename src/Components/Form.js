@@ -1,19 +1,21 @@
 import React from 'react'
 
 export default function Form(props) {
-    const { formState,
-            disabled,
-            errors,
-            onInputChange, 
-            onCheckboxChange, 
-            onSubmit,
-        } = props
+    const { 
+        formState,
+        disabled,
+        errors,
+        onInputChange, 
+        onCheckboxChange, 
+        onSubmit,
+    } = props
+
     return (
         <form onSubmit={onSubmit}>
-            <div>{errors.name}</div>
-            <div>{errors.email}</div>
-            <div>{errors.password}</div>
-            <div>{errors.terms}</div>
+            <div className='error'>{errors.name}</div>
+            <div className='error'>{errors.email}</div>
+            <div className='error'>{errors.password}</div>
+            <div className='error'>{errors.terms}</div>
             <label>Name:&nbsp;
                 <input 
                     type='text'

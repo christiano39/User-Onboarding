@@ -9,6 +9,7 @@ export default function User(props) {
             <p>ID: {id}</p>
             <p>Email: {email}</p>
             <p>Password Length: {password.length} characters</p>
+            {/* <pre>{JSON.stringify(props.user)}</pre> */}
         </div>
     )
 }
