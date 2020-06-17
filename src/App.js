@@ -11,6 +11,7 @@ const initialFormState = {
   email: '',
   password: '',
   role: '',
+  gender: '',
   terms: false,
 }
 const initialFormErrors = {
@@ -19,6 +20,7 @@ const initialFormErrors = {
   password: '',
   role: '',
   terms: '',
+  gender: '',
 }
 const initialDisabledState = true
 
@@ -108,6 +110,7 @@ function App() {
       email: formState.email.trim(),
       password: formState.password.trim(),
       role: formState.role,
+      gender: formState.gender,
       terms: formState.terms,
     }
 

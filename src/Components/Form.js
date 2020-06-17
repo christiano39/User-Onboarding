@@ -17,6 +17,7 @@ export default function Form(props) {
             <div className='error'>{errors.email}</div>
             <div className='error'>{errors.password}</div>
             <div className='error'>{errors.role}</div>
+            <div className='error'>{errors.gender}</div>
             <div className='error'>{errors.terms}</div>
             <label>Name:&nbsp;
                 <input 
@@ -58,6 +59,36 @@ export default function Form(props) {
                     <option value='Alumni'>Alumni</option>
                 </select>
             </label>
+            <br />
+            <div className='radio-buttons'>
+                <label>Male
+                    <input 
+                        checked={formState.gender === 'Male'}
+                        value='Male'
+                        onChange={onInputChange}
+                        name='gender'
+                        type='radio'
+                    />
+                </label>
+                <label>Female
+                    <input 
+                        checked={formState.gender === 'Female'}
+                        value='Female'
+                        onChange={onInputChange}
+                        name='gender'
+                        type='radio'
+                    />
+                </label>
+                <label>Prefer not to say
+                    <input 
+                        checked={formState.gender === 'N/A'}
+                        value='N/A'
+                        onChange={onInputChange}
+                        name='gender'
+                        type='radio'
+                    />
+                </label>
+            </div>
             <br />
             <label>Do you agree to the terms and conditions?&nbsp;
                 <input 

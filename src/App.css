@@ -38,3 +38,13 @@ form .error {
 form button {
   width: 80px;
 }
+
+form .radio-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+form .radio-buttons input {
+  margin: 0 20px;
+}

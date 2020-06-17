@@ -18,6 +18,9 @@ const formSchema = Yup.object().shape({
     role: Yup
       .string()
       .oneOf(["Student", "Instructor", "Team Lead", "Alumni"], "Please select a role"),
+    gender: Yup
+      .string()
+      .oneOf(["Male", "Female", "N/A"], "Please select one of the gender options"),
     terms: Yup
       .boolean()
       .oneOf([true], "Must accept the terms and conditions"),
