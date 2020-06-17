@@ -8,7 +8,7 @@ export default function User(props) {
             <h3>{name}</h3>
             <p>ID: {id}</p>
             <p>Email: {email}</p>
-            <p>Password Length: {password.length} characters</p>
+            <p>Password: {password}</p>
             {/* <pre>{JSON.stringify(props.user)}</pre> */}
         </div>
     )

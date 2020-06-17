@@ -1,7 +1,40 @@
+html {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
 
 .error {
   color: red;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: azure;
+  box-shadow: 2px 3px 3px 0px rgba(0,0,0,0.49);
+  border: 1px solid aqua;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  margin: 20px auto;
+  align-items: center;
+}
+
+form .error {
+  margin: 5px;
+}
+
+form button {
+  width: 80px;
 }

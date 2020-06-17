@@ -127,7 +127,7 @@ function App() {
         onCheckboxChange={onCheckboxChange}
         onSubmit={onSubmit}
       />
-      <h2>Users</h2>
+      { users.length > 0 ? <h2>Users</h2> : '' }
       {
         users.map(user => {
           return <User user={user} key={user.id} />

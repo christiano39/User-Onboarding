@@ -12,6 +12,7 @@ export default function Form(props) {
 
     return (
         <form onSubmit={onSubmit}>
+            <h2>New User</h2>
             <div className='error'>{errors.name}</div>
             <div className='error'>{errors.email}</div>
             <div className='error'>{errors.password}</div>
@@ -42,6 +43,7 @@ export default function Form(props) {
                     onChange={onInputChange}
                 />
             </label>
+            <br />
             <br />
             <label>Do you agree to the terms and conditions?&nbsp;
                 <input 
