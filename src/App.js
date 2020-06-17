@@ -10,12 +10,14 @@ const initialFormState = {
   name: '',
   email: '',
   password: '',
+  role: '',
   terms: false,
 }
 const initialFormErrors = {
   name: '',
   email: '',
   password: '',
+  role: '',
   terms: '',
 }
 const initialDisabledState = true
@@ -105,7 +107,8 @@ function App() {
       name: formState.name.trim(),
       email: formState.email.trim(),
       password: formState.password.trim(),
-      terms: formState.terms
+      role: formState.role,
+      terms: formState.terms,
     }
 
     postNewUser(newUser)

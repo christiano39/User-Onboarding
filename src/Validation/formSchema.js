@@ -14,6 +14,9 @@ const formSchema = Yup.object().shape({
       .string()
       .min(6, "Password must be at least 6 characters long")
       .required("Password is required"),
+    role: Yup
+      .string()
+      .oneOf(["Student", "Instructor", "Team Lead", "Alumni"], "Please select a role"),
     terms: Yup
       .boolean()
       .oneOf([true], "Must accept the terms and conditions"),

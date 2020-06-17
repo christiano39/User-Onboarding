@@ -16,6 +16,7 @@ export default function Form(props) {
             <div className='error'>{errors.name}</div>
             <div className='error'>{errors.email}</div>
             <div className='error'>{errors.password}</div>
+            <div className='error'>{errors.role}</div>
             <div className='error'>{errors.terms}</div>
             <label>Name:&nbsp;
                 <input 
@@ -44,6 +45,19 @@ export default function Form(props) {
                 />
             </label>
             <br />
+            <label>Role:&nbsp;
+                <select
+                    onChange={onInputChange}
+                    value={formState.role}
+                    name='role'
+                >
+                    <option value=''>-- Select a role --</option>
+                    <option value='Student'>Student</option>
+                    <option value='Instructor'>Instructor</option>
+                    <option value='Team Lead'>Team Lead</option>
+                    <option value='Alumni'>Alumni</option>
+                </select>
+            </label>
             <br />
             <label>Do you agree to the terms and conditions?&nbsp;
                 <input 
