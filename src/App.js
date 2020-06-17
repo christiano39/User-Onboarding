@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Form from './Components/Form'
+import User from './Components/User'
 import formSchema from './Validation/formSchema'
 import axios from 'axios'
 import * as Yup from 'yup'
@@ -23,7 +24,22 @@ function App() {
   const [formState, setFormState] = useState(initialFormState)
   const [formErrors, setFormErrors] = useState(initialFormErrors)
   const [disabled, setDisabled] = useState(initialDisabledState)
+  const [users, setUsers] = useState([])
+  const URL = 'https://reqres.in/api/users'
 
+  const postNewUser = newUser => {
+    axios.post(URL, newUser)
+      .then(res => {
+        setUsers([ ...users, res.data ])
+      })
+      .catch(err => {
+        console.log(err)
+      })
+      .finally(() => {
+        setFormState(initialFormState)
+      })
+  }
+  
   const onInputChange = e => {
     const { name, value } = e.target
 
@@ -84,6 +100,15 @@ function App() {
 
   const onSubmit = e => {
     e.preventDefault()
+
+    const newUser = {
+      name: formState.name.trim(),
+      email: formState.email.trim(),
+      password: formState.password.trim(),
+      terms: formState.terms
+    }
+
+    postNewUser(newUser)
   }
 
   useEffect(() => {
@@ -102,6 +127,12 @@ function App() {
         onCheckboxChange={onCheckboxChange}
         onSubmit={onSubmit}
       />
+      <h2>Users</h2>
+      {
+        users.map(user => {
+          return <User user={user} key={user.id} />
+        })
+      }
     </div>
   );
 }
