@@ -81,8 +81,8 @@ export default function Form(props) {
                 </label>
                 <label>Prefer not to say
                     <input 
-                        checked={formState.gender === 'N/A'}
-                        value='N/A'
+                        checked={formState.gender === 'NA'}
+                        value='NA'
                         onChange={onInputChange}
                         name='gender'
                         type='radio'
@@ -99,7 +99,7 @@ export default function Form(props) {
                 />
             </label>
             <br />
-            <button disabled={disabled}>Submit</button>
+            <button id='submitBtn' disabled={disabled}>Submit</button>
         </form>
     )
 }
