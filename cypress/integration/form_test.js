@@ -62,3 +62,30 @@ describe('User can type in form', () => {
         cy.get('button#submitBtn').should('not.be.disabled')
     })
 })
+
+describe('User can press submit and form clears', () => {
+    it('can submit the form', () => {
+        cy.get('button#submitBtn').click().should('be.disabled')
+        cy.get('input[name=name]').should('have.value', '')
+        cy.get('input[name=email]').should('have.value', '')
+        cy.get('input[name=password]').should('have.value', '')
+        cy.get('select[name=role]').should('have.value', '')
+        cy.get('input[value=NA]').should('not.be.checked')
+        cy.get('input[value=Male]').should('not.be.checked')
+        cy.get('input[value=Female]').should('not.be.checked')
+        cy.get('input[name=terms]').should('not.be.checked')
+    })
+
+    it('displays the submitted data', () => {
+        cy.contains('Christian Arneson')
+        cy.contains('ID: ')
+        cy.contains('carneson39@gmail.com')
+        cy.contains('password123')
+        cy.contains('Role: Student')
+        cy.contains('Gender: Male')
+    })
+})
+
+describe('Form validation works', () => {
+    
+})
