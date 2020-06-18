@@ -13,12 +13,12 @@ export default function Form(props) {
     return (
         <form onSubmit={onSubmit}>
             <h2>New User</h2>
-            <div className='error'>{errors.name}</div>
-            <div className='error'>{errors.email}</div>
-            <div className='error'>{errors.password}</div>
-            <div className='error'>{errors.role}</div>
-            <div className='error'>{errors.gender}</div>
-            <div className='error'>{errors.terms}</div>
+            <div className='error name-error'>{errors.name}</div>
+            <div className='error email-error'>{errors.email}</div>
+            <div className='error password-error'>{errors.password}</div>
+            <div className='error role-error'>{errors.role}</div>
+            <div className='error gender-error'>{errors.gender}</div>
+            <div className='error terms-error'>{errors.terms}</div>
             <label>Name:&nbsp;
                 <input 
                     type='text'

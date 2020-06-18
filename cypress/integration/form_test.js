@@ -87,5 +87,55 @@ describe('User can press submit and form clears', () => {
 })
 
 describe('Form validation works', () => {
-    
+    it('name validation works', () => {
+        cy.get('input[name=name]').type('aa')
+        cy.get('.name-error').should('contain', 'Name must be at least 3 characters long')
+
+        cy.get('input[name=name]').type('abababababababababababababababababa')
+        cy.get('.name-error').should('contain', 'Name must be fewer than 35 characters')
+
+        cy.get('input[name=name]').clear()
+        cy.get('.name-error').should('contain', 'Name must be at least 3 characters long')
+
+        cy.get('input[name=name]').type('Jeff')
+        cy.get('.name-error').should('be.empty')
+    })
+
+    it('email validation works', () => {
+        cy.get('input[name=email]').type('jeff')
+        cy.get('.email-error').should('contain', 'Must be a valid email address')
+
+        cy.get('input[name=email]').type('@')
+        cy.get('.email-error').should('contain', 'Must be a valid email address')
+
+        cy.get('input[name=email]').type('jeff')
+        cy.get('.email-error').should('contain', 'Must be a valid email address')
+
+        cy.get('input[name=email]').type('.com')
+        cy.get('.email-error').should('be.empty')
+
+        cy.get('input[name=email]').clear()
+        cy.get('.email-error').should('contain', 'Must include email address')
+
+        cy.get('input[name=email]').type('waffle@syrup.com')
+        cy.get('.email-error').should('contain', 'That email address is already in use')
+    })
+
+    it('password validation works', () => {
+        cy.get('input[name=password]').type('aaaaa')
+        cy.get('.password-error').should('contain', 'Password must be at least 6 characters long')
+
+        cy.get('input[name=password]').type('a')
+        cy.get('.password-error').should('be.empty')
+    })
+
+    it('terms checkbox validation works', () => {
+        cy.get('.terms-error').should('be.empty')
+        cy.get('input[name=terms]').click()
+        cy.get('.terms-error').should('be.empty')
+        cy.get('input[name=terms]').click()
+        cy.get('.terms-error').should('contain', 'Must accept the terms and conditions')
+        cy.get('input[name=terms]').click()
+        cy.get('.terms-error').should('be.empty')
+    })
 })

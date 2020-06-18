@@ -9,7 +9,7 @@ const formSchema = Yup.object().shape({
     name: Yup
       .string()
       .min(3, "Name must be at least 3 characters long.")
-      .max(50, "Name must be fewer than 50 characters")
+      .max(35, "Name must be fewer than 35 characters")
       .required("Name is Required"),
     password: Yup
       .string()
